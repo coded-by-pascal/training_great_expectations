@@ -16,7 +16,7 @@
 ## Initialize
 ### Basic structure
 Simple training repo for Great Expectations
-```shell
+```bash
 # Create new folder
 mkdir tjf_ge_2023-03
 
@@ -28,7 +28,7 @@ git clone https://github.com/coded-by-pascal/training_great_expectations.git
 ```
 
 ### Python environment
-```shell
+```bash
 virtualenv venv
 
 source venv/bin/activate
