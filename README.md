@@ -8,7 +8,7 @@
 - Python: 3.7 to 3.10
 - PIP Packages
 - Great Expectations
-- Venv
+- virtualenv
 - SQL-Client - Empfehlung: DBeaver 
 
  
@@ -25,16 +25,16 @@ cd tjf_ge_2023-03
 
 # Clone git repository
 git clone https://github.com/coded-by-pascal/training_great_expectations.git
-
-# Initialize great expectations
-great_expectations init
 ```
 
 ### Python environment
 ```shell
-python -m tjf_ge
+virtualenv venv
 
-source tjf_ge/bin/activate
+source venv/bin/activate
 
-pip install -r requirements.txt
+pip install -r training_great_expectations/requirements.txt
+
+# Initialize great expectations
+great_expectations init
 ```
