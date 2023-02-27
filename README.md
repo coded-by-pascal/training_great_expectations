@@ -29,10 +29,18 @@ git clone https://github.com/coded-by-pascal/training_great_expectations.git
 
 ### Python environment
 ```bash
+#install virtualenv if not already happen with: pip install virtualenv
+#Create a virtual enviorment
 virtualenv venv
 
+# activate the virtual enviorment
+# for windows
+venv\Scripts\activate
+
+#for mac
 source venv/bin/activate
 
+# Install requirements
 pip install -r training_great_expectations/requirements.txt
 
 # Initialize great expectations
