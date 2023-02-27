@@ -38,3 +38,23 @@ pip install -r training_great_expectations/requirements.txt
 # Initialize great expectations
 great_expectations init
 ```
+
+### Expectation
+```bash
+# Your folder should look like this
+├── great_expectations
+│   ├── checkpoints
+│   ├── expectations
+│   ├── great_expectations.yml
+│   ├── plugins
+│   ├── profilers
+│   └── uncommitted
+├── training_great_expectations
+│   ├── README.md
+│   ├── requirements.txt
+│   └── testdata
+└── venv
+    ├── bin
+    ├── lib
+    └── pyvenv.cfg
+```
