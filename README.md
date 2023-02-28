@@ -4,12 +4,16 @@
 # Setup
 
 ## Install
-- Python IDE - Empfehlung: Visual Studio Code 
-- Python: 3.7 to 3.10
-- PIP Packages
-- Great Expectations
-- virtualenv
-- SQL-Client - Empfehlung: DBeaver 
+
+*  Python IDE
+    - Empfehlung: Visual Studio Code 
+* Python: 
+    - 3.7 to 3.10
+* PIP Packages
+    - Great Expectations
+* virtualenv
+* SQL-Client 
+    - Empfehlung: DBeaver 
 
  
 
@@ -50,6 +54,7 @@ great_expectations init
 ### Expectation
 ```bash
 # Your folder should look like this
+tjf_ge_2023-03
 ├── great_expectations
 │   ├── checkpoints
 │   ├── expectations
