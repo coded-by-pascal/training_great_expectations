@@ -2,11 +2,9 @@ import great_expectations as gx
 
 context = gx.get_context()
 
-
 validator = context.sources.pandas_default.read_parquet(
     "../testdata/green_tripdata_2022-01.parquet"
 )
-
 
 validator.expect_column_values_to_not_be_null("lpep_pickup_datetime")
 validator.expect_column_values_to_not_be_null("lpep_dropoff_datetime")
