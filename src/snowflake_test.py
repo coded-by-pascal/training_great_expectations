@@ -1,11 +1,4 @@
-host = "btelligent.eu-central-1"  # The account name (include region -- ex 'ABCD.us-east-1')
-username = "FLEUR_KINATEDER"
-password = "DCSO?;6Pxv)^,n74z};V"
-database = "AMAZON_VENDOR_ANALYTICS__SAMPLE_DATASET"  # The database name
-schema_name = "PUBLIC"  # The schema name
-warehouse = "LOAD_WH"  # The warehouse name
-role = "PUBLIC"  # The role name
-table_name = "PUBLIC.ADS_DSP_CREATIVE_PERFORMANCE"
+
 
 connection_string = f"snowflake://{username}:{password}@{host}/{database}/{schema_name}?warehouse={warehouse}&role={role}&application=great_expectations_oss"
 
@@ -49,6 +42,7 @@ batch_request = BatchRequest(
 expectation_suite_name="test_suite"
 
 context.add_or_update_expectation_suite(expectation_suite_name=expectation_suite_name)
+#context.create_expectation_suite(expectation_suite_name=expectation_suite_name) # FLKI: muss ich ändern, mit add_or_update hat es bei mir nicht funktioniert
 
 validator = context.get_validator(
     batch_request=batch_request, expectation_suite_name=expectation_suite_name
