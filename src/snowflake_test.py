@@ -1,6 +1,6 @@
 host = "btelligent.eu-central-1"  # The account name (include region -- ex 'ABCD.us-east-1')
 username = "FLEUR_KINATEDER"
-password = "DCSO?;6Pxv)^,n74z};V"
+password = ""
 database = "AMAZON_VENDOR_ANALYTICS__SAMPLE_DATASET"  # The database name
 schema_name = "PUBLIC"  # The schema name
 warehouse = "LOAD_WH"  # The warehouse name
@@ -57,6 +57,8 @@ print(validator.head())
 
 from great_expectations.profile.user_configurable_profiler import UserConfigurableProfiler
 profiler = UserConfigurableProfiler(profile_dataset=validator)
+profiler.profile_dataset.save_expectation_suite(filepath="expect_suite.txt", discard_failed_expectations=False)
+
 
 suite = profiler.build_suite()
 
@@ -64,7 +66,7 @@ from great_expectations.checkpoint.checkpoint import SimpleCheckpoint
 
 # Review and save our Expectation Suite
 print(validator.get_expectation_suite(discard_failed_expectations=False))
-validator.save_expectation_suite(discard_failed_expectations=False)
+validator.save_expectation_suite(filepath="expect_suite2.txt", discard_failed_expectations=False)
 
 # Set up and run a Simple Checkpoint for ad hoc validation of our data
 checkpoint_config = {
