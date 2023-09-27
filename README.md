@@ -2,6 +2,10 @@
 
 
 # Setup
+export sf_user=VORNAME_NACHNAME
+export sf_password"MY_SECRET_PASSWORD
+
+
 
 ## Install
 
