@@ -37,8 +37,6 @@ sf_source_batch = sf_source_datasource.get_asset("retail_analytics_net_ppm").bui
 
 sf_stage_batch = sf_stage_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
 
-sf_source_batch = sf_source_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
-
 data_assistant_result = context.assistants.onboarding.run(
     batch_request=sf_stage_batch,
     exclude_column_names=[

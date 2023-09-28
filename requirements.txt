@@ -1,2 +1,2 @@
-great-expectations==0.17.80
+great-expectations==0.17.19
 virtualenv==20.19.0
