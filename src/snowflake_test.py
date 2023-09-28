@@ -1,6 +1,6 @@
 host = "btelligent.eu-central-1"  # The account name (include region -- ex 'ABCD.us-east-1')
-username = "FLEUR_KINATEDER"
-password = "DCSO?;6Pxv)^,n74z};V"
+username = ""
+password = ""
 database = "AMAZON_VENDOR_ANALYTICS__SAMPLE_DATASET"  # The database name
 schema_name = "PUBLIC"  # The schema name
 warehouse = "LOAD_WH"  # The warehouse name
