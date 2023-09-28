@@ -22,10 +22,10 @@ export sf_password"MY_SECRET_PASSWORD
 Simple training repo for Great Expectations
 ```bash
 # Create new folder
-mkdir tjf_ge_2023-03
+mkdir tjf_ge_2023-09
 
 # Move to new folder
-cd tjf_ge_2023-03
+cd tjf_ge_2023-09
 
 # Clone git repository
 git clone https://github.com/coded-by-pascal/training_great_expectations.git
@@ -34,7 +34,7 @@ git clone https://github.com/coded-by-pascal/training_great_expectations.git
 ### Expectation
 ```bash
 # Your folder should look like this
-tjf_ge_2023-03
+tjf_ge_2023-09
 ├── great_expectations
 │   ├── checkpoints
 │   ├── expectations
