@@ -15,12 +15,8 @@ export sf_password"MY_SECRET_PASSWORD
     - 3.8 to 3.11
 * PIP Packages
     - Great Expectations
-* virtualenv
-* SQL-Client 
-    - Empfehlung: DBeaver 
 
  
-
 ## Initialize
 ### Basic structure
 Simple training repo for Great Expectations
