@@ -1,5 +1,6 @@
 import great_expectations as gx
 import os
+from datetime import datetime
 
 def _get_connection_string() -> str:
     host = "btelligent.eu-central-1"  # The account name (include region -- ex 'ABCD.us-east-1')
@@ -27,6 +28,7 @@ sf_stage_datasource.add_table_asset(
 
 sf_stage_batch = sf_stage_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
 
+validator=sf_stage_batch
 
 expectation_suite_name = "write own expectations"
 
@@ -74,6 +76,15 @@ checkpoint = context.add_or_update_checkpoint(
         }
     ],
 )
+
+validator = context.get_validator(
+    batch_request=sf_stage_batch, expectation_suite_name=expectation_suite_name
+)
+
+# Review and save our Expectation Suite in json
+date = (datetime.today()).strftime('%Y%m%d')
+print(validator.get_expectation_suite(discard_failed_expectations=False))
+validator.save_expectation_suite(filepath= "expect_suite_" + str(date) + ".json", discard_failed_expectations=False)
 
 
 checkpoint_result = checkpoint.run()
