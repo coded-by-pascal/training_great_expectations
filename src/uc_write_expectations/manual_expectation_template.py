@@ -20,7 +20,7 @@ def _get_connection_string() -> str:
 context = gx.get_context()
 
 sf_stage_datasource = context.sources.add_sql(
-    name="sf_stage1", connection_string=_get_connection_string() #musste ich nachdem ich es einmal laufen habe lassen ändern
+    name="sf_stage", connection_string=_get_connection_string()
 )
 sf_stage_datasource.add_table_asset(
     name="retail_analytics_net_ppm", schema_name="tjf_2023_09_stage", table_name="retail_analytics_net_ppm"
@@ -30,7 +30,7 @@ sf_stage_batch = sf_stage_datasource.get_asset("retail_analytics_net_ppm").build
 
 validator=sf_stage_batch
 
-expectation_suite_name = "write own expectations2" #musste ich nachdem ich es einmal laufen habe lassen ändern
+expectation_suite_name = "write own expectations"
 
 suite = context.add_expectation_suite(expectation_suite_name=expectation_suite_name)
 
@@ -50,39 +50,6 @@ expectation_configuration_1 = ExpectationConfiguration(
         }
     },
 )
-
-suite.add_expectation(expectation_configuration=expectation_configuration_1)
-
-expectation_configuration_2 = ExpectationConfiguration(
-    expectation_type="expect_column_values_to_be_in_set",
-    kwargs={
-        "column": "program",
-        "value_set": ["Amazon Retail"],
-    },
-
-)
-suite.add_expectation(expectation_configuration=expectation_configuration_2)
-
-
-
-expectation_configuration_3 = ExpectationConfiguration(
-    expectation_type="expect_column_values_to_be_in_set",
-    kwargs={
-        "column": "distributor_view",
-        "value_set": ["Manufacturing"],
-    },
-
-)
-suite.add_expectation(expectation_configuration=expectation_configuration_3)
-
-expectation_configuration_4 = ExpectationConfiguration(
-    expectation_type="expect_column_values_to_not_be_null",
-    kwargs={
-        "column": "product_title"
-    },
-
-)
-suite.add_expectation(expectation_configuration=expectation_configuration_4)
 
 
 context.add_or_update_expectation_suite(expectation_suite=suite)
