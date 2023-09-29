@@ -22,20 +22,29 @@ context = gx.get_context()
 sf_source_datasource = context.sources.add_sql(
     name="sf_source", connection_string=_get_connection_string(), create_temp_table=False
 )
-sf_source_datasource.add_table_asset(
+sf_source_asset = sf_source_datasource.add_table_asset(
     name="retail_analytics_net_ppm", schema_name="tjf_2023_09_source", table_name="retail_analytics_net_ppm"
 )
+
+# sf_source_asset.add_splitter_year_and_month(column_name="date")
+
+# sf_source_asset = sf_source_asset.add_sorters(["+year"])
 
 sf_stage_datasource = context.sources.add_sql(
     name="sf_stage", connection_string=_get_connection_string(), create_temp_table=False
 )
-sf_stage_datasource.add_table_asset(
+sf_stage_asset = sf_stage_datasource.add_table_asset(
     name="retail_analytics_net_ppm", schema_name="tjf_2023_09_stage", table_name="retail_analytics_net_ppm"
 )
 
-sf_source_batch = sf_source_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
+# sf_stage_asset.add_splitter_year_and_month(column_name="date")
 
-sf_stage_batch = sf_stage_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
+# sf_stage_asset = sf_stage_asset.add_sorters(["+year"])
+
+
+sf_source_batch = sf_source_asset.build_batch_request()
+
+sf_stage_batch = sf_stage_asset.build_batch_request()
 
 data_assistant_result = context.assistants.onboarding.run(
     batch_request=sf_stage_batch,

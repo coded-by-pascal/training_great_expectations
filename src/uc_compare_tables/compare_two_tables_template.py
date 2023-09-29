@@ -55,16 +55,5 @@ checkpoint = context.add_or_update_checkpoint(
 checkpoint_result = checkpoint.run()
 
 
-
-# assert checkpoint_result["success"] is True
-# statistics = checkpoint_result["run_results"][
-#     list(checkpoint_result["run_results"].keys())[0]
-# ]["validation_result"]["statistics"]
-# assert statistics["evaluated_expectations"] != 0
-# assert statistics["evaluated_expectations"] == statistics["successful_expectations"]
-# assert statistics["unsuccessful_expectations"] == 0
-# assert statistics["success_percent"] == 100.0
-# data_assistant_result.plot_expectations_and_metrics()
-
 context.build_data_docs()
 context.open_data_docs()
