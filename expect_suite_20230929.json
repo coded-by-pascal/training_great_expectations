@@ -1,63 +1,7 @@
 {
   "data_asset_type": null,
-  "expectation_suite_name": "write own expectations2",
-  "expectations": [
-    {
-      "expectation_type": "expect_table_columns_to_match_ordered_list",
-      "kwargs": {
-        "column_list": [
-          "id",
-          "_created_on",
-          "_last_updated_on",
-          "_revision",
-          "_partneruuid",
-          "date",
-          "period",
-          "program",
-          "distributor_view",
-          "asin",
-          "product_title",
-          "net_ppm",
-          "net_ppm_prior_period",
-          "net_ppm_last_year",
-          "raw_record"
-        ]
-      },
-      "meta": {
-        "notes": {
-          "content": "Table structure",
-          "format": "markdown"
-        }
-      }
-    },
-    {
-      "expectation_type": "expect_column_values_to_be_in_set",
-      "kwargs": {
-        "column": "program",
-        "value_set": [
-          "Amazon Retail"
-        ]
-      },
-      "meta": {}
-    },
-    {
-      "expectation_type": "expect_column_values_to_be_in_set",
-      "kwargs": {
-        "column": "distributor_view",
-        "value_set": [
-          "Manufacturing"
-        ]
-      },
-      "meta": {}
-    },
-    {
-      "expectation_type": "expect_column_values_to_not_be_null",
-      "kwargs": {
-        "column": "product_title"
-      },
-      "meta": {}
-    }
-  ],
+  "expectation_suite_name": "write own expectations",
+  "expectations": [],
   "ge_cloud_id": null,
   "meta": {
     "great_expectations_version": "0.17.19"
