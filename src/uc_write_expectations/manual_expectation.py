@@ -20,7 +20,8 @@ def _get_connection_string() -> str:
 context = gx.get_context()
 
 sf_stage_datasource = context.sources.add_sql(
-    name="sf_stage1", connection_string=_get_connection_string() #musste ich nachdem ich es einmal laufen habe lassen ändern
+    name="sf_stage1", connection_string=_get_connection_string()
+    ,create_temp_table=False
 )
 sf_stage_datasource.add_table_asset(
     name="retail_analytics_net_ppm", schema_name="tjf_2023_09_stage", table_name="retail_analytics_net_ppm"
@@ -30,7 +31,7 @@ sf_stage_batch = sf_stage_datasource.get_asset("retail_analytics_net_ppm").build
 
 validator=sf_stage_batch
 
-expectation_suite_name = "write own expectations2" #musste ich nachdem ich es einmal laufen habe lassen ändern
+expectation_suite_name = "write own expectations2"
 
 suite = context.add_expectation_suite(expectation_suite_name=expectation_suite_name)
 

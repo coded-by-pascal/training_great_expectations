@@ -17,7 +17,6 @@ def _get_connection_string() -> str:
 
 
 context = gx.get_context()
-# </snippet>
 
 sf_source_datasource = context.sources.add_sql(
     name="sf_source", connection_string=_get_connection_string(), create_temp_table=False
@@ -26,19 +25,11 @@ sf_source_datasource.add_table_asset(
     name="retail_analytics_net_ppm", schema_name="tjf_2023_09_source", table_name="retail_analytics_net_ppm"
 )
 
-sf_stage_datasource = context.sources.add_sql(
-    name="sf_stage", connection_string=_get_connection_string(), create_temp_table=False
-)
-sf_stage_datasource.add_table_asset(
-    name="retail_analytics_net_ppm", schema_name="tjf_2023_09_stage", table_name="retail_analytics_net_ppm"
-)
-
 sf_source_batch = sf_source_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
 
-sf_stage_batch = sf_stage_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
 
 data_assistant_result = context.assistants.onboarding.run(
-    batch_request=sf_stage_batch,
+    batch_request=sf_source_batch,
     exclude_column_names=[
         "_CREATED_ON",
         "_LAST_UPDATED_ON",

@@ -20,10 +20,10 @@ def _get_connection_string() -> str:
 context = gx.get_context()
 
 sf_stage_datasource = context.sources.add_sql(
-    name="sf_stage", connection_string=_get_connection_string()
+    name="sf_stage", connection_string=_get_connection_string(), create_temp_table=False
 )
 sf_stage_datasource.add_table_asset(
-    name="retail_analytics_net_ppm", schema_name="tjf_2023_09_stage", table_name="retail_analytics_net_ppm"
+    name="retail_analytics_net_ppm", schema_name="tjf_2023_09_stage", table_name="retail_analytics_net_ppm", 
 )
 
 sf_stage_batch = sf_stage_datasource.get_asset("retail_analytics_net_ppm").build_batch_request()
