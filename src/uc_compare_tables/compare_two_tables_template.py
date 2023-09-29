@@ -30,12 +30,7 @@ sf_source_batch = sf_source_datasource.get_asset("retail_analytics_net_ppm").bui
 
 data_assistant_result = context.assistants.onboarding.run(
     batch_request=sf_source_batch,
-    exclude_column_names=[
-        "_CREATED_ON",
-        "_LAST_UPDATED_ON",
-        "_REVISION",
-        "_PARTNERUUID"
-    ],
+
     estimation="flag_outliers"
 )
 
